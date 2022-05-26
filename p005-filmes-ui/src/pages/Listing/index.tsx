@@ -7,8 +7,24 @@ function Listing() {
         /**aqui estou usando o fragment para exportar mais de 1 component, tbm poderia usar DIV */
         <> 
         <Pagination/>
-        {/** o moviecard ficara dentro desta div para formatar usando o bootstrap, ivitando que ocupe toda a largura da tela*/}
-        <MovieCard/>
+        {/** o moviecard ficara dentro desta div(container, grade e colunas) para formatar usando o bootstrap, ivitando que ocupe toda a largura da tela*/}
+        <div className="container">
+            <div className="row">
+                <div className="col">
+                    <MovieCard/>
+                </div>
+                <div className="col">
+                    <MovieCard/>
+                </div>
+                <div className="col">
+                    <MovieCard/>
+                </div>
+                <div className="col">
+                    <MovieCard/>
+                </div>
+            </div>
+        </div>
+        
         </>
     );
 }
