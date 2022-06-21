@@ -7,6 +7,7 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 
 //detalhe, ao usar uma classe de chave composta, é necessario serializar. é uma exigencia do JPA
+//ao usar Serializable, indica que esse objeto pode ser convertido para bites, o que melhora o trafego na rede
 
 @Embeddable
 public class ScorePK implements Serializable{
