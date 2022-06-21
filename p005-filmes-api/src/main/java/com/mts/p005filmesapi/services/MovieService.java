@@ -23,4 +23,12 @@ public class MovieService {
 		Page<MovieDTO> page = resultado.map(x -> new MovieDTO(x)); //convertendo o resultado para DTO
 		return page;
 	}
+	
+	@Transactional(readOnly = true)
+	public MovieDTO findById(Long id){
+		Movie resultado = repository.findById(id).get();//para acessar o objeto que está dentro do Optional, é necessário .get()
+		MovieDTO dto = new MovieDTO(resultado); //convertendo o resultado para DTO
+		return dto;
+	}
+	
 }
