@@ -1,20 +1,29 @@
 import axios from "axios";
 import MovieCard from "components/MovieCard";
 import Pagination from "components/Pagination";
+import { useEffect, useState } from "react";
+import { MoviePage } from "types/movie";
 import { BASE_URL } from "utils/requests";
 
 
 function Listing() {
 
-    //testando requisição de forma errada
-    axios.get(`${BASE_URL}/movies?size=12&page=0`)
+    const [pageNumber, setPageNumber] = useState(0);
+
+    useEffect(() => {
+        axios.get(`${BASE_URL}/movies?size=12&page=1`)
         .then(resposta => {
-            console.log(resposta.data);
-        })
+            const data = resposta.data as MoviePage;
+            console.log(data);
+            setPageNumber(data.number);
+        });
+    }, []);    
 
     return(
         /**aqui estou usando o fragment para exportar mais de 1 component, tbm poderia usar DIV */
         <> 
+
+        <p>{pageNumber}</p>
         <Pagination/>
         {/** o moviecard ficara dentro desta div(container, grade e colunas) para formatar usando o bootstrap, ivitando que ocupe toda a largura da tela*/}
         <div className="container">
