@@ -1,0 +1,2 @@
+export const BASE_URL = process.env.REACT_APP_BACKEND_URL ?? "http://localhost:8080";
+//definido variavel de ambiente para comunicar front-end com backend lá no heroku, ?? significa operador de coalecencia nula.
