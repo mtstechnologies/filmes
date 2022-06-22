@@ -1,17 +1,19 @@
 import MovieStars from "components/MovieStars";
 import "./styles.css";
 
-function MovieScore() {
+type Props = {
+  score: number;
+  count: number;
+}
 
-    const score = 3.5;
-    const count = 17;
+function MovieScore( {score, count} : Props) {
 
   return (
     <div className="mts-score-container">
       <p className="mts-score-value">
         {score > 0 ? score.toFixed(1) : "-"} {/**esta linha é um IF */}
       </p>
-      <MovieStars />
+      <MovieStars score={score} />
       <p className="mts-score-count">{count} avaliações</p>
     </div>
   );
