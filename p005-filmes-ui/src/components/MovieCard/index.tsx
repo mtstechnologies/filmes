@@ -1,27 +1,25 @@
 import MovieScore from "components/MovieScore";
 import { Link } from "react-router-dom";
+import { Movie } from "types/movie";
 
-function MovieCard() {
-  const filme = {
-    id: 1,
-    image:
-      "https://www.themoviedb.org/t/p/w533_and_h300_bestv2/jBJWaqoSCiARWtfV0GlqHrcdidd.jpg",
-    title: "The Witcher",
-    count: 2,
-    score: 4.5,
-  };
+type Props = {
+movie: Movie;
+}
+
+function MovieCard({ movie } : Props) {
+  
   return (
     <div>
       <img
         className="mts-filme-card-image"
-        src={filme.image}
-        alt={filme.title}
+        src={movie.image}
+        alt={movie.title}
       />
       <div className="mts-card-bottom-container">
-        <h3>{filme.title}</h3>
+        <h3>{movie.title}</h3>
         <MovieScore />
 
-        <Link to={`/form/${filme.id}`}>
+        <Link to={`/form/${movie.id}`}>
             <div className="btn btn-primary mts-btn">Avaliar</div>
         </Link>        
       </div>
