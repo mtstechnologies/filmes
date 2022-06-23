@@ -1,8 +1,9 @@
-import axios from "axios";
+import axios, { AxiosRequestConfig } from "axios";
 import { useEffect, useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { Movie } from "types/movie";
 import { BASE_URL } from "utils/requests";
+import { validateEmail } from "utils/validate";
 import "./styles.css";
 
 type Props = {
@@ -11,6 +12,7 @@ type Props = {
 
 function FormCard({movieId} : Props) {
 
+  const navegacao = useNavigate();
   const [movie, setMovie] = useState<Movie>();
 
   useEffect(() => {
@@ -19,6 +21,32 @@ function FormCard({movieId} : Props) {
         setMovie(response.data);
       });
   }, [movieId]);
+
+const salvaFormulario = (event: React.FormEvent<HTMLFormElement>) => {
+    event.preventDefault(); //para evitar o evento padrão de atualizar a tela, assim, envios os dados parasalvar sem atualizar a pagina
+
+    const email = (event.target as any).email.value;
+    const score = (event.target as any).score.value;
+
+    if(!validateEmail(email)){
+      return;
+    }
+    //enviando o corpo na requisição para salvar
+    const config: AxiosRequestConfig = {
+      baseURL: BASE_URL,
+      method: 'PUT',
+      url: '/scores',
+      data: {
+        email: email,
+        movieId: movieId,
+        score: score
+      }
+    } 
+    
+    axios(config).then(response => {
+      navegacao("/"); //apos salvar minha avaliação, volto para a pagina de listagem de filmes
+    });
+}
 
   return (
     <div className="mts-form-container">
@@ -29,7 +57,7 @@ function FormCard({movieId} : Props) {
       />
       <div className="mts-card-bottom-container">
         <h3>{movie?.title}</h3>
-        <form className="mts-form">
+        <form className="mts-form" onSubmit={salvaFormulario}>
           <div className="form-group mts-form-group">
             <label htmlFor="email">Informe seu email</label>
             <input type="email" className="form-control" id="email" />
