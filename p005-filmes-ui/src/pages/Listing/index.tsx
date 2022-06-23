@@ -31,11 +31,15 @@ function Listing() {
         });
     }, [pageNumber]); //quando mudar o pageNamber a pagina será refeita 
 
+    const trocaPagina = (newPageNumber : number) => {
+        setPageNumber(newPageNumber);
+    }
+
     return(
         /**aqui estou usando o fragment para exportar mais de 1 component, tbm poderia usar DIV */
         <> 
 
-        <Pagination/>
+        <Pagination page={page} onChange={trocaPagina}/>
         {/** o moviecard ficara dentro desta div(container, grade e colunas) para formatar usando o bootstrap, 
          * ivitando que ocupe toda a largura da tela*/}
         <div className="container">
