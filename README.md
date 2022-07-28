@@ -3,7 +3,7 @@
 
 ## Sobre o projeto
 
-##### [MTS Filmes] (mtsfilmes-michael.netlify.app/) é uma aplicação interativa, full stack web e mobile. Que consiste em uma lista de filmes onde o usuario irá avaliar o seu filme favorito, os dados são coletados e atualizados. Construída durante a Semana Spring React, evento organizado pela [DevSuperior - Escola de programação](https://devsuperior.com.br).
+##### [MTS Filmes](https://mtsfilmes-michael.netlify.app/) é uma aplicação interativa, full stack web e mobile. Que consiste em uma lista de filmes onde o usuario irá avaliar o seu filme favorito, os dados são coletados e atualizados. Construída durante a Semana Spring React, evento organizado pela [DevSuperior - Escola de programação](https://devsuperior.com.br).
 
 
 ## :hammer: Tecnologias utilizadas
