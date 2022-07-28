@@ -3,7 +3,7 @@
 
 ## Sobre o projeto
 
-##### MTS Filmes é uma aplicação interativa, full stack web e mobile. Que consiste em uma lista de filmes onde o usuario irá avaliar o seu filme favorito, os dados são coletados e atualizados. Construída durante a Semana Spring React, evento organizado pela # DevSuperior.
+##### MTS Filmes é uma aplicação interativa, full stack web e mobile. Que consiste em uma lista de filmes onde o usuario irá avaliar o seu filme favorito, os dados são coletados e atualizados. Construída durante a Semana Spring React, evento organizado pela **DevSuperior**.
 
 
 ## :hammer: Tecnologias utilizadas
